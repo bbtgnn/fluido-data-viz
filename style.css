@@ -1,0 +1,214 @@
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --border: #2d333b;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #f78166;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+header { text-align: center; margin-bottom: 20px; }
+header h1 { font-size: 1.5rem; font-weight: 650; }
+header .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+main {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.viz-panel {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  max-width: 100%;
+}
+
+#flow {
+  display: block;
+  border-radius: 8px;
+  background: #05070c;
+  max-width: 100%;
+  height: auto;
+}
+
+.regime-badge {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(4px);
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 380px;
+  max-width: 100%;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.card h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.controls label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.9rem;
+  margin: 14px 0 6px;
+  font-weight: 500;
+}
+
+.controls label:first-of-type { margin-top: 0; }
+
+.controls .value {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  background: #0d1117;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+  touch-action: pan-y; /* il dito muove lo slider senza far scorrere la pagina in orizzontale */
+}
+
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.68rem;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-row { display: flex; gap: 10px; margin-top: 16px; }
+
+button {
+  flex: 1;
+  background: #21262d;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+button:hover { background: #30363d; }
+
+.readout dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 7px;
+  font-size: 0.88rem;
+}
+.readout dt { color: var(--muted); }
+.readout dd {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 550;
+}
+
+#cdChart { display: block; width: 100%; height: auto; }
+
+footer {
+  max-width: 980px;
+  margin-top: 20px;
+  text-align: center;
+}
+#regimeDescription {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+#regimeDescription strong { color: var(--text); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  body { padding: 14px 10px; }
+
+  header { margin-bottom: 14px; }
+  header h1 { font-size: 1.15rem; }
+  header .subtitle { font-size: 0.8rem; }
+
+  main { gap: 14px; }
+
+  .viz-panel {
+    width: 100%;
+    padding: 6px;
+  }
+
+  .regime-badge {
+    top: 12px;
+    left: 12px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    max-width: calc(100% - 24px);
+  }
+
+  .side-panel { width: 100%; }
+
+  .card { padding: 14px; }
+
+  /* 16px evita lo zoom automatico di iOS al focus */
+  select { font-size: 1rem; padding: 10px 12px; }
+
+  /* target touch più comodi */
+  input[type="range"] { height: 34px; }
+  button { padding: 12px 0; font-size: 0.9rem; }
+
+  footer { margin-top: 14px; padding: 0 4px; }
+}
