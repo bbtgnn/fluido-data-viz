@@ -1,7 +1,28 @@
 (function () {
+  const SIM_W = 1380;
+  const SIM_H = 756;
+
   const overlay = document.getElementById("loadOverlay");
   const errorBox = document.getElementById("loadError");
   const frame = document.getElementById("gameFrame");
+  const panel = frame.closest(".viz-panel");
+
+  function fitFrame() {
+    if (!panel) return;
+    const w = panel.clientWidth;
+    if (!w) return;
+    const scale = w / SIM_W;
+    frame.style.width = SIM_W + "px";
+    frame.style.height = SIM_H + "px";
+    frame.style.transform = "scale(" + scale + ")";
+  }
+
+  window.addEventListener("resize", fitFrame);
+  window.addEventListener("load", fitFrame);
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(fitFrame).observe(panel);
+  }
+  fitFrame();
 
   function hideOverlay() {
     overlay.classList.add("hidden");
@@ -27,6 +48,7 @@
   });
 
   frame.addEventListener("load", () => {
+    fitFrame();
     // Se il WASM impiega molto, l'overlay resta finché non arriva kutta-ready.
     setTimeout(() => {
       if (!overlay.classList.contains("hidden")) {
