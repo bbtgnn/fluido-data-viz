@@ -36,6 +36,7 @@ Simulazione didattica del tunnel del vento 2D [kutta](https://github.com/crgimen
 | `icon_js.go` | `setWindowIcon()` no-op |
 | `input_js.go` | No-op per `toggleEdit`, `openSceneDialog`, `saveScene`, `saveSceneAs` |
 | `toolbar_js.go` | `runSimToolbar()` senza pulsanti Edit/Open/Save/Save As |
+| `bottom_panel_js.go` | `drawBottomPanel()` senza scorciatoie editor/scene (O, Cmd+S, E, Esc, L) |
 
 A ogni build, `main.go` e `icon.go` del submodule ricevono `//go:build !(js && wasm)` così convivono con gli overlay.
 

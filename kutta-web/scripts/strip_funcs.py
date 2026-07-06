@@ -7,7 +7,7 @@ import sys
 
 def strip_method(source: str, receiver: str, name: str) -> str:
     escaped_receiver = re.escape(receiver)
-    pattern = rf"func \({escaped_receiver}\) {re.escape(name)}\(\)"
+    pattern = rf"func \({escaped_receiver}\) {re.escape(name)}\([^)]*\)"
     match = re.search(pattern, source)
     if not match:
         return source
@@ -53,7 +53,7 @@ def main() -> None:
 
     with open(game_path, encoding="utf-8") as f:
         game = f.read()
-    for name in ("openSceneDialog", "saveScene", "saveSceneAs", "runSimToolbar"):
+    for name in ("openSceneDialog", "saveScene", "saveSceneAs", "runSimToolbar", "drawBottomPanel"):
         game = strip_method(game, "g *Game", name)
     with open(game_path, "w", encoding="utf-8") as f:
         f.write(game)
