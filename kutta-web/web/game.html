@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kutta — tunnel del vento 2D</title>
+  <script src="wasm_exec.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0d1117;
+    }
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b949e;
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      background: #0d1117;
+      z-index: 1;
+    }
+    #loading.hidden { display: none; }
+    #error {
+      display: none;
+      position: fixed;
+      inset: 16px;
+      padding: 16px;
+      color: #f78166;
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 0.9rem;
+      background: #161b22;
+      border: 1px solid #2d333b;
+      border-radius: 8px;
+      z-index: 2;
+    }
+    canvas { display: block; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <div id="loading">Caricamento simulazione…</div>
+  <div id="error"></div>
+  <script>
+    if (!WebAssembly.instantiateStreaming) {
+      WebAssembly.instantiateStreaming = async (resp, importObject) => {
+        const source = await (await resp).arrayBuffer();
+        return WebAssembly.instantiate(source, importObject);
+      };
+    }
+
+    const loading = document.getElementById("loading");
+    const errorEl = document.getElementById("error");
+
+    function showError(msg) {
+      loading.classList.add("hidden");
+      errorEl.style.display = "block";
+      errorEl.textContent = msg;
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: "kutta-error", message: msg }, "*");
+      }
+    }
+
+    const go = new Go();
+    const wasmUrl = "kutta.wasm";
+
+    WebAssembly.instantiateStreaming(fetch(wasmUrl), go.importObject)
+      .then((result) => {
+        loading.classList.add("hidden");
+        if (window.parent !== window) {
+          window.parent.postMessage({ type: "kutta-ready" }, "*");
+        }
+        go.run(result.instance);
+      })
+      .catch((err) => {
+        showError("Impossibile avviare la simulazione: " + err.message);
+      });
+  </script>
+</body>
+</html>

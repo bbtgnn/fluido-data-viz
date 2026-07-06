@@ -1,28 +1,27 @@
-# Fluido Data Viz — Variazione del flusso con Re
+# fluido-data-viz
 
-Visualizzazione interattiva del flusso attorno a un cilindro circolare al variare del **numero di Reynolds**.
+Raccolta di visualizzazioni interattive didattiche di fluidodinamica. Ogni progetto vive in una propria sottocartella, autonoma e senza dipendenze (HTML/CSS/JS puro).
 
-## Contesto
+## Progetti
 
-- **Fluido variabile** (default: aria a 20 °C; disponibili anche acqua, olio d'oliva, glicerina)
-- **Re variabile** da 10⁰ a 10⁷ (valore iniziale: 10⁵)
-- Simulazione a particelle del campo di moto: flusso potenziale + modelli di scia (ricircolo stazionario, scia di von Kármán, turbolenza, crisi della resistenza)
-
-## Funzionalità
-
-- Slider logaritmico per Re e per il diametro del cilindro
-- Selettore del fluido (ρ e μ reali)
-- Riquadro con grandezze fisiche derivate: viscosità cinematica, velocità U∞, C_d, resistenza per metro, frequenza di distacco dei vortici (Strouhal)
-- Grafico C_d(Re) con indicatore della condizione corrente
-- Descrizione del regime di flusso attivo
+| Cartella | Descrizione |
+|---|---|
+| [`cilindro-reynolds/`](cilindro-reynolds/) | Flusso esterno attorno a un cilindro circolare al variare del numero di Reynolds (10⁰–10⁷), con fluido selezionabile, simulazione a particelle, grafico C_d(Re) e regimi di scia |
+| [`kutta-web/`](kutta-web/) | Tunnel del vento 2D attorno a profili NACA (simulazione LBM kutta nel browser via WASM): campi, fumo, portanza/resistenza, angolo d'attacco |
 
 ## Avvio
 
-Nessuna dipendenza: è HTML/CSS/JS puro.
+Ogni progetto si avvia allo stesso modo, servendo la radice del repo:
 
 ```bash
-python3 -m http.server 8000
-# poi apri http://localhost:8000
+python3 -m http.server 8123
+# poi apri http://localhost:8123 e scegli il progetto
 ```
 
-Oppure apri direttamente `index.html` nel browser.
+Oppure apri direttamente l'`index.html` del progetto nel browser.
+
+## Aggiungere un nuovo progetto
+
+1. Crea una nuova sottocartella con un nome descrittivo (kebab-case).
+2. Metti dentro `index.html`, `style.css`, `app.js`, un `README.md` e un `AGENTS.md` specifici del progetto.
+3. Aggiungi la riga corrispondente alla tabella qui sopra e un link nella pagina indice (`index.html` alla radice).

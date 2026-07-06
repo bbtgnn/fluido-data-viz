@@ -1,1 +1,8 @@
 .DS_Store
+__pycache__/
+*.pyc
+
+# kutta-web: artefatti WASM generati dalla build
+kutta-web/web/kutta.wasm
+kutta-web/web/kutta.wasm.gz
+kutta-web/web/wasm_exec.js

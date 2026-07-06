@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flusso attorno a un cilindro — Numero di Reynolds</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Variazione del flusso al variare di <em>Re</em></h1>
+    <p class="subtitle">Flusso esterno attorno a un cilindro circolare — fluido variabile (default: aria)</p>
+  </header>
+
+  <main>
+    <section class="viz-panel">
+      <canvas id="flow" width="960" height="520"></canvas>
+      <div class="regime-badge" id="regimeBadge">—</div>
+    </section>
+
+    <aside class="side-panel">
+      <div class="card controls">
+        <h2>Controlli</h2>
+
+        <label for="fluidSelect">Fluido</label>
+        <select id="fluidSelect"></select>
+
+        <label for="reSlider">
+          Numero di Reynolds
+          <span class="value" id="reValue">10<sup>5</sup></span>
+        </label>
+        <input type="range" id="reSlider" min="0" max="7" step="0.01" value="5" />
+        <div class="slider-scale">
+          <span>10⁰</span><span>10¹</span><span>10²</span><span>10³</span>
+          <span>10⁴</span><span>10⁵</span><span>10⁶</span><span>10⁷</span>
+        </div>
+
+        <label for="diamSlider">
+          Diametro cilindro <span class="value" id="diamValue">0.10 m</span>
+        </label>
+        <input type="range" id="diamSlider" min="-2" max="0" step="0.01" value="-1" />
+
+        <div class="btn-row">
+          <button id="pauseBtn">⏸ Pausa</button>
+          <button id="resetBtn">↺ Reset particelle</button>
+        </div>
+      </div>
+
+      <div class="card readout">
+        <h2>Grandezze fisiche</h2>
+        <dl id="physReadout"></dl>
+      </div>
+
+      <div class="card">
+        <h2>Coefficiente di resistenza C<sub>d</sub>(Re)</h2>
+        <canvas id="cdChart" width="340" height="200"></canvas>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <p id="regimeDescription"></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[submodule "kutta-web/kutta"]
+	path = kutta-web/kutta
+	url = https://github.com/crgimenes/kutta.git
+	branch = trunk

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunnel del vento 2D — profili NACA (kutta)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Tunnel del vento 2D attorno a profili NACA</h1>
+    <p class="subtitle">
+      Simulazione qualitativa con metodo Lattice-Boltzmann (LBM): campo di velocità,
+      vorticità, pressione, streamline di fumo e vettori portanza/resistenza al variare
+      dell'angolo d'attacco. <strong>Non è una CFD validata</strong> — serve per intuizione didattica.
+    </p>
+    <p class="credit">
+      Basato su <a href="https://github.com/crgimenes/kutta" target="_blank" rel="noopener">kutta</a>
+      (MIT) di Carlos Gimenes — portato nel browser via WebAssembly + Ebitengine.
+    </p>
+  </header>
+
+  <main>
+    <section class="viz-panel">
+      <div id="loadOverlay">Caricamento simulazione…</div>
+      <iframe
+        id="gameFrame"
+        src="game.html"
+        width="1380"
+        height="756"
+        allow="autoplay"
+        title="Simulazione kutta"
+      ></iframe>
+    </section>
+
+    <aside class="side-panel">
+      <div class="card">
+        <h2>Controlli tastiera</h2>
+        <p>Clicca prima sul riquadro della simulazione per dare focus alla tastiera.</p>
+        <ul>
+          <li><kbd>↑</kbd><kbd>↓</kbd> Angolo d'attacco</li>
+          <li><kbd>Tab</kbd> Profilo NACA (ciclo preset)</li>
+          <li><kbd>V</kbd> Campo: velocità / vorticità / pressione</li>
+          <li><kbd>S</kbd> Linee di corrente (streamline)</li>
+          <li><kbd>G</kbd> Effetto bloom sul fumo</li>
+          <li><kbd>[</kbd> <kbd>]</kbd> Velocità di ingresso</li>
+          <li><kbd>Spazio</kbd> Pausa / ripresa</li>
+          <li><kbd>R</kbd> Reset del flusso</li>
+          <li><kbd>N</kbd> Un passo (con pausa attiva)</li>
+        </ul>
+        <p class="note">
+          Puoi anche digitare un codice NACA nel campo in alto (es. <code>2412</code>, <code>0012</code>)
+          e usare gli slider in basso per angolo e velocità.
+        </p>
+        <p class="note">
+          Nel browser non sono disponibili editor, apertura o salvataggio scene (<kbd>E</kbd>, <kbd>O</kbd>).
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <div id="loadError"></div>
+
+  <footer>Compilato da Go → WASM — richiede server HTTP (non aprire come file locale)</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
