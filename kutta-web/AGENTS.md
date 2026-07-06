@@ -85,7 +85,6 @@ Dopo un bump del submodule verificare che `strip_funcs.py` rimuova ancora i meto
 | `web/game.html` | Carica `kutta.wasm` + `wasm_exec.js`, notifica parent via `postMessage` |
 | `web/app.js` | Overlay caricamento, timeout errore |
 | `web/style.css` | Tema scuro allineato a `cilindro-reynolds` |
-| `index.html` | Redirect a `web/` |
 
 Dimensioni iframe simulazione: **1380×756 px** (costanti `winW`/`winH` in kutta `game.go`).
 

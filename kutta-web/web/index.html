@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tunnel del vento 2D — profili NACA (kutta)</title>
+  <title>Profili NACA nel tunnel del vento</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../site.css" />
 </head>
 <body>
   <header>
-    <h1>Tunnel del vento 2D attorno a profili NACA</h1>
+    <a class="home-link" href="../../">← home</a>
+    <h1>Profili NACA nel tunnel del vento</h1>
     <p class="subtitle">
       Simulazione qualitativa con metodo Lattice-Boltzmann (LBM): campo di velocità,
       vorticità, pressione, streamline di fumo e vettori portanza/resistenza al variare
@@ -16,7 +18,7 @@
     </p>
     <p class="credit">
       Basato su <a href="https://github.com/crgimenes/kutta" target="_blank" rel="noopener">kutta</a>
-      (MIT) di Carlos Gimenes — portato nel browser via WebAssembly + Ebitengine.
+      di Carlos Gimenes (licenza MIT).
     </p>
   </header>
 
@@ -29,7 +31,7 @@
         width="1380"
         height="756"
         allow="autoplay"
-        title="Simulazione kutta"
+        title="Simulazione tunnel del vento"
       ></iframe>
     </section>
 
@@ -53,15 +55,13 @@
           e usare gli slider in basso per angolo e velocità.
         </p>
         <p class="note">
-          Nel browser non sono disponibili editor, apertura o salvataggio scene (<kbd>E</kbd>, <kbd>O</kbd>).
+          Non sono disponibili editor, apertura o salvataggio scene (<kbd>E</kbd>, <kbd>O</kbd>).
         </p>
       </div>
     </aside>
   </main>
 
   <div id="loadError"></div>
-
-  <footer>Compilato da Go → WASM — richiede server HTTP (non aprire come file locale)</footer>
 
   <script src="app.js"></script>
 </body>

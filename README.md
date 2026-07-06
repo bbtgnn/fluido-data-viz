@@ -6,8 +6,8 @@ Raccolta di visualizzazioni interattive didattiche di fluidodinamica. Ogni proge
 
 | Cartella | Descrizione |
 |---|---|
-| [`cilindro-reynolds/`](cilindro-reynolds/) | Flusso esterno attorno a un cilindro circolare al variare del numero di Reynolds (10⁰–10⁷), con fluido selezionabile, simulazione a particelle, grafico C_d(Re) e regimi di scia |
-| [`kutta-web/`](kutta-web/) | Tunnel del vento 2D attorno a profili NACA (simulazione LBM kutta nel browser via WASM): campi, fumo, portanza/resistenza, angolo d'attacco |
+| [`cilindro-reynolds/`](cilindro-reynolds/) | Flusso attorno a un cilindro — Re 10⁰–10⁷, fluido selezionabile, particelle, C_d(Re), regimi di scia |
+| [`kutta-web/web/`](kutta-web/web/) | Profili NACA nel tunnel del vento — LBM kutta (WASM): campi, fumo, portanza/resistenza, angolo d'attacco |
 
 ## Avvio
 

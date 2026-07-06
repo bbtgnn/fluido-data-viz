@@ -1,0 +1,26 @@
+/* Stili condivisi tra le pagine del sito (navigazione, ecc.) */
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: var(--muted, #8b949e);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.home-link:hover {
+  color: var(--accent, #58a6ff);
+  background: var(--panel, #161b22);
+  border-color: var(--border, #2d333b);
+}
+
+.home-link:focus-visible {
+  outline: 2px solid var(--accent, #58a6ff);
+  outline-offset: 2px;
+}

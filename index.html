@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fluido-data-viz — Visualizzazioni di fluidodinamica</title>
+  <title>Visualizzazioni di fluidodinamica</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -24,9 +24,9 @@
       align-items: center;
       padding: 48px 16px;
     }
-    header { text-align: center; margin-bottom: 32px; }
+    header { text-align: center; margin-bottom: 32px; max-width: 640px; }
     header h1 { font-size: 1.7rem; font-weight: 650; }
-    header p { color: var(--muted); margin-top: 6px; font-size: 0.95rem; }
+    header p { color: var(--muted); margin-top: 8px; font-size: 0.95rem; line-height: 1.5; }
     main { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 16px; }
     a.project {
       display: block;
@@ -41,26 +41,26 @@
     a.project:hover { border-color: var(--accent); transform: translateY(-2px); }
     a.project h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 6px; }
     a.project p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
-    footer { margin-top: auto; padding-top: 40px; color: var(--muted); font-size: 0.8rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>fluido-data-viz</h1>
-    <p>Visualizzazioni interattive didattiche di fluidodinamica</p>
+    <h1>Visualizzazioni di fluidodinamica</h1>
+    <p>
+      Raccolta di simulazioni interattive didattiche: esplora come cambia il flusso
+      attorno a corpi semplici al variare dei parametri fisici.
+    </p>
   </header>
 
   <main>
     <a class="project" href="cilindro-reynolds/">
-      <h2>Flusso attorno a un cilindro — numero di Reynolds</h2>
+      <h2>Flusso attorno a un cilindro</h2>
       <p>Flusso esterno attorno a un cilindro circolare al variare di Re (10⁰–10⁷), con fluido selezionabile, simulazione a particelle, grafico C<sub>d</sub>(Re) e descrizione dei regimi di scia.</p>
     </a>
     <a class="project" href="kutta-web/web/">
-      <h2>Tunnel del vento 2D — profili NACA (kutta)</h2>
-      <p>Simulazione LBM qualitativa attorno a profili alari NACA: campo di velocità, vorticità, fumo, portanza e resistenza al variare dell'angolo d'attacco. Portata nel browser via WebAssembly.</p>
+      <h2>Profili NACA nel tunnel del vento</h2>
+      <p>Simulazione LBM qualitativa attorno a profili alari NACA: campo di velocità, vorticità, fumo, portanza e resistenza al variare dell'angolo d'attacco.</p>
     </a>
   </main>
-
-  <footer>HTML/CSS/JS puro — nessuna dipendenza</footer>
 </body>
 </html>
