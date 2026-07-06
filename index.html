@@ -27,18 +27,27 @@
     header { text-align: center; margin-bottom: 32px; max-width: 640px; }
     header h1 { font-size: 1.7rem; font-weight: 650; }
     header p { color: var(--muted); margin-top: 8px; font-size: 0.95rem; line-height: 1.5; }
-    main { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 16px; }
+    main { width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 16px; }
     a.project {
       display: block;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px 24px;
+      overflow: hidden;
       text-decoration: none;
       color: var(--text);
       transition: border-color 0.15s, transform 0.15s;
     }
     a.project:hover { border-color: var(--accent); transform: translateY(-2px); }
+    a.project img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    a.project .project-body { padding: 20px 24px; }
     a.project h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 6px; }
     a.project p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
   </style>
@@ -54,12 +63,18 @@
 
   <main>
     <a class="project" href="cilindro-reynolds/">
-      <h2>Flusso attorno a un cilindro</h2>
-      <p>Flusso esterno attorno a un cilindro circolare al variare di Re (10⁰–10⁷), con fluido selezionabile, simulazione a particelle, grafico C<sub>d</sub>(Re) e descrizione dei regimi di scia.</p>
+      <img src="cilindro-reynolds/_metadata/preview-image.png" alt="" loading="lazy" width="1920" height="1080" />
+      <div class="project-body">
+        <h2>Flusso attorno a un cilindro</h2>
+        <p>Flusso esterno attorno a un cilindro circolare al variare di Re (10⁰–10⁷), con fluido selezionabile, simulazione a particelle, grafico C<sub>d</sub>(Re) e descrizione dei regimi di scia.</p>
+      </div>
     </a>
     <a class="project" href="kutta-web/web/">
-      <h2>Profili NACA nel tunnel del vento</h2>
-      <p>Simulazione LBM qualitativa attorno a profili alari NACA: campo di velocità, vorticità, fumo, portanza e resistenza al variare dell'angolo d'attacco.</p>
+      <img src="kutta-web/_metadata/preview-image.png" alt="" loading="lazy" width="1920" height="1080" />
+      <div class="project-body">
+        <h2>Profili NACA nel tunnel del vento</h2>
+        <p>Simulazione LBM qualitativa attorno a profili alari NACA: campo di velocità, vorticità, fumo, portanza e resistenza al variare dell'angolo d'attacco.</p>
+      </div>
     </a>
   </main>
 </body>
