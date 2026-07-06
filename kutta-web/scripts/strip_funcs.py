@@ -53,7 +53,7 @@ def main() -> None:
 
     with open(game_path, encoding="utf-8") as f:
         game = f.read()
-    for name in ("openSceneDialog", "saveScene", "saveSceneAs"):
+    for name in ("openSceneDialog", "saveScene", "saveSceneAs", "runSimToolbar"):
         game = strip_method(game, "g *Game", name)
     with open(game_path, "w", encoding="utf-8") as f:
         f.write(game)
